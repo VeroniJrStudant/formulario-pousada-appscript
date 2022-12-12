@@ -1,0 +1,677 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&
+    family=Poppins:wght@200;400;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    ul,
+    p,
+    a,
+    blockquote,
+    dd {
+      margin: 0px;
+    }
+
+    body {
+      display: flex;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+    }
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin: 0px;
+      margin-bottom: 40px;
+      columns: 1/-1;
+      gap: 32px;
+    }
+
+    img {
+      border-radius: 5px;
+      margin-bottom: 12px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      color: blue;
+    }
+
+    h1 {
+      margin-bottom: 1vw;
+    }
+
+    .cor-do-codigo-reserva {
+      color: #3498db;
+      font-size: 1.2rem;
+      text-transform: none;
+      margin: 0px 100px;
+      text-align: justify;
+    }
+
+    h2 {
+      display: flex;
+      margin: 0px;
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h5 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 200;
+      text-transform: none;
+    }
+
+    hr {
+      height: 3px;
+      background-color: #3D2611;
+      border: 0px solid #3D2611;
+      margin: 2px 12px;
+    }
+
+    label {
+      margin: 0px;
+      grid-template-columns: auto;
+      align-items: center;
+      text-align: start;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input {
+      display: flex;
+      background-color: #E9B43E;
+      grid-template-columns: auto;
+      columns: 1/-1;
+      width: 100%;
+      height: 36px;
+      align-items: center;
+    }
+
+    textarea {
+      display: grid;
+      padding: 20px;
+      columns: 1;
+      margin: 0vw 20vw;
+      height: 6vh;
+      font-size: 18px;
+      border: 3px solid #3D2611;
+      border-radius: 8px;
+      margin-bottom: 32px;
+      background: #E9B43E;
+    }
+
+    .seletor {
+      display: grid;
+    }
+
+    select {
+      display: flex;
+      border: 0px;
+      border-radius: 4px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      color: red;
+      margin: 0px;
+      margin-bottom: 2vw;
+      align-items: center;
+      text-align: center;
+      text-transform: none;
+    }
+
+    button {
+      height: 10vh;
+      padding: 0vw 2vw;
+      background-color: #427a35;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.3em;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      word-spacing: 8px;
+      text-transform: uppercase;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.2);
+      color: #fff;
+      background-color: #3d7b30;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .botao-loader {
+      display: flex;
+      justify-content: space-evenly;
+      text-transform: none;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .loader {
+      display: inline-flex;
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      /* Safari */
+      animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .header {
+      position: static;
+      display: flex;
+      background: #E9B43E;
+      height: 10vh;
+      padding: 0px !important;
+      padding: 0px !important;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header img {
+      max-width: 8rem;
+      margin: 0vw 1.5vw !important;
+      padding: 0px !important;
+      border: 0px !important;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .titulo {
+      font-size: 22px;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .container-pousadas-bg {
+      margin: 0px;
+      padding: 40px;
+    }
+
+    .imagens-selecao {
+      justify-content: center;
+      gap: 3em;
+    }
+
+    .container-selecao {
+      display: block;
+      color: #000000;
+    }
+
+    .botao-img img {
+      width: 160px;
+      height: 120px;
+    }
+
+    .botao {
+      display: flex;
+      margin: 0px;
+      background-color: #E9B43E;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      padding: 12px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .botao input {
+      display: flex;
+      border: none;
+      width: 1.8em;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .botao:hover {
+      border: 1px solid #E9B43E;
+      background: #fff;
+    }
+
+    .botao input:checked {
+      background-color: #fff;
+    }
+
+    .container-dados-bg {
+      display: grid;
+      border-radius: 8px;
+      background: #E9B43E;
+      padding-bottom: 24px;
+    }
+
+    .container-dados {
+      padding: 10px 30px;
+    }
+
+    .container-dados-formulario {
+      margin-top: 4px;
+    }
+
+    .container-dados-seletor {
+      display: flex;
+      justify-content: center;
+      padding: 10px 110px;
+      margin-left: 16px;
+    }
+
+    .container-dados input {
+      border: none;
+      font-size: 16px;
+      padding: 0px 12px;
+      background-color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .container-dados input:hover,
+    .container-dados input[type="date"]:hover,
+    .container-dados input[type="date"]:focus-within {
+      background-color: #feff8b;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .container-dados-form {
+      margin: 0px;
+      display: grid;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+      padding: 30px 100px;
+      gap: 40px;
+      grid-template-columns: 2fr 2fr;
+    }
+
+    .container-observacao {
+      display: block;
+      align-items: center;
+      margin: 0px;
+    }
+
+    .div-observacao {
+      display: grid;
+      justify-content: center;
+      margin: 12px;
+    }
+
+    .botao-confirmar {
+      display: flex;
+      margin: 0em 8em;
+      columns: 1/-1;
+      margin-top: 2em;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rodape {
+      display: flex;
+      height: 60px;
+      color: white;
+      background-color: #3D2611;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .modal-content-titulo {
+      align-content: center;
+    }
+
+    #telaModal {
+      border-radius: 8px;
+      border: none;
+      padding: 40px;
+      font-family: "Poppins",
+        sans-serif;
+      font-weight: 20px;
+      word-spacing: 12px;
+      color: #3D2611;
+      text-align: center;
+    }
+
+    dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #botao-enviar {
+      margin: 10px;
+      border: none;
+      width: 12vw;
+      height: 8vh;
+      font-size: 12px;
+      gap: 2rem;
+    }
+
+    .container-botao {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      columns: 1/-1;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .tela-modal-confirma {
+      margin: 0px;
+      padding: 2vw;
+      justify-content: space-evenly;
+      gap: 2vw;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="header"><a href="https://www.pousadaubud.com.br/" target="_blank">
+        <img style="background-color: hsl(0, 0%, 90%);transition: background-color 300ms;"
+          src="https://lirp.cdn-website.com/c78f7d03/dms3rep/multi/opt/LOGO-04-222w.png">
+      </a>
+    </div>
+    <hr>
+    <div class="container">
+      <div class="container-pousadas-bg" id="validar-formulario">
+        <div class="imagens-selecao">
+          <section>
+            <div class="container-selecao">
+              <div class="botao-img">
+                <img
+                  src="https://lirp.cdn-website.com/c78f7d03/dms3rep/multi/opt/WhatsApp+Image+2021-02-06+at+16.09.06-1920w.jpeg"
+                  alt="Casa 01">
+              </div>
+              <div class="botao" id="botao">
+                <input type="radio" name="tipo" value="casa01" id="casa01">
+                <label for="casa01">Casa 01</label>
+              </div>
+            </div>
+            <div class="container-selecao">
+              <div class="botao-img">
+                <img
+                  src="https://lirp.cdn-website.com/c78f7d03/dms3rep/multi/opt/WhatsApp+Image+2021-02-06+at+16.09.05-1920w.jpeg"
+                  alt="Casa 02">
+              </div>
+              <div class="botao" id="botao">
+                <input type="radio" name="tipo" value="casa02" id="casa02">
+                <label for="casa02">Casa 02</label>
+              </div>
+            </div>
+            <div class="container-selecao">
+              <div class="botao-img">
+                <img
+                  src="https://lirp.cdn-website.com/c78f7d03/dms3rep/multi/opt/WhatsApp+Image+2021-02-09+at+21.09.10-1920w.jpeg"
+                  alt="Loft 01">
+              </div>
+              <div class="botao" id="botao">
+                <input type="radio" name="tipo" value="loft01" id="loft01">
+                <label for="loft01">Loft 01</label>
+              </div>
+            </div>
+            <div class="container-selecao">
+              <div class="botao-img">
+                <img
+                  src="https://lirp.cdn-website.com/c78f7d03/dms3rep/multi/opt/WhatsApp+Image+2021-02-09+at+21.09.12-1920w.jpeg"
+                  alt="Loft 02">
+              </div>
+              <div class="botao" id="botao">
+                <input type="radio" name="tipo" value="loft02" id="loft02">
+                <label for="loft02">Loft 02</label>
+              </div>
+            </div>
+            <div class="container-selecao">
+              <div class="botao-img">
+                <img
+                  src="https://lirp.cdn-website.com/c78f7d03/dms3rep/multi/opt/WhatsApp+Image+2021-02-09+at+21.09.14+%281%29-1920w.jpeg"
+                  alt="Loft 03">
+              </div>
+              <div class="botao" id="botao">
+                <input type="radio" name="tipo" value="loft03" id="loft03">
+                <label for="loft03">Loft 03</label>
+              </div>
+          </section>
+        </div>
+        <hr>
+        <form method="dialog">
+          <div class="container-dados-bg" id="container-dados-id">
+            <h2 class="titulo">dados da reserva</h2>
+            <div class="container-dados-form">
+              <div class="container-dados">
+                <label for="dataReserva">Data da Reserva</label>
+                <input type="date" name="dataReserva" id="dataReserva">
+              </div>
+              <div class="container-dados">
+                <label for="nome">Nome completo do hospede</label>
+                <input type="text" id="nome" name="nome">
+              </div>
+              <div class="container-dados">
+                <label for="dataCheck-in">Check-in</label>
+                <input type="date" name="dataCheck-in" id="dataCheck-in">
+              </div>
+              <div class="container-dados">
+                <label for="dataCheck-out">Check-out</label>
+                <input type="date" name="dataCheck-out" id="dataCheck-out">
+              </div>
+              <div class="container-dados">
+                <label for="adultos">Adultos</label>
+                <input type="number" name="hospedeAdulto" id="hospedeAdulto">
+              </div>
+              <div class="container-dados">
+                <label for="crianca">Crianças</label>
+                <input type="number" name="hospedeCrianca" id="hospedeCrianca">
+              </div>
+              <div class="container-dados">
+                <label for="valorTotal">Valor Total</label>
+                <input type="text" name="valorTotal" id="valorTotal">
+              </div>
+              <div class="container-dados">
+                <label for="valorRecebido">Valor recebido</label>
+                <input type="text" name="valorRecebido" id="valorRecebido">
+              </div>
+            </div>
+            <div class="container-dados-seletor">
+              <label for="seletor" class="seletor">selecione quem indicou!
+                <select class="seletor" id="seletor">
+                  <option value="">- SELECIONE -</option>
+                  <option value="AIRBNB">AIRBNB</option>
+                  <option value="BOOKING">BOOKING</option>
+                  <option value="DIRETO">DIRETO</option>
+                  <option value="INDICADO">INDICADO</option>
+                  <option value="VRBO">VRBO</option>
+                </select>
+            </div>
+          </div>
+          <div class="container-observacao">
+            <hr>
+            <div class="div-observacao">
+              <h2 class="observacao">Observação</h2>
+              <textarea class="observacao" name="observacao" id="observacao" cols="300" rows="5"></textarea>
+            </div>
+          </div>
+          <div class="container-alerta"></div>
+          <div class="container-botao">
+            <button onclick="inserirReserva()">confirmar reserva</button>
+          </div>
+          <dialog id="telaModal">
+            <div class="modal-content">
+              <div class="modal-content-titulo">
+                <h1 class="modal-titulo">reserva confirmada</h1>
+              </div>
+              <h1>cód da reserva:</h1>
+              <span id="msg-alerta"></span>
+              <div id="tela-modal-confirma" class="tela-modal-confirma">
+              </div>
+              <div class="modal-botao-enviar">
+              </div>
+            </div>
+          </dialog>
+        </form>
+      </div>
+    </div>
+    <div class="rodape">
+      <h5>@ Todos os direitos autorais reservados | desenvolvidor Veroni Júnior</h5>
+      <a href="https://wa.me/?text=Como%20vai,%20em%20que%20posso%20ajudar?" target="_blank"
+        rel="noopener noreferrer">+55 (48)
+        99114-9540</a>
+    </div>
+  </div>
+
+  <script>
+    const divModal = document.getElementById("tela-modal-confirma");
+    const modal = document.getElementById("telaModal");
+    const div = document.createElement("div");
+    div.classList.add("box-loader");
+    div.innerHTML = `<div class="botao-confirmar" id="botao-confirma">
+      <button onclick="verCodigoReserva()">ver reserva</button></div>`;
+    divModal.appendChild(div);
+
+    function getFormFields() {
+      const inputs = document.querySelectorAll("#container-dados-id > div.container-dados-form input");
+      const inputUnidade = document.querySelector("#botao > input[type=radio]:checked");
+
+      const dadosDaReserva = {
+        "Unidade": inputUnidade === null ? "" : inputUnidade.value,
+        "Data Reserva": inputs[0].value,
+        "Nome Completo": inputs[1].value,
+        "Check In": inputs[2].value,
+        "Check Out": inputs[3].value,
+        "Adultos": inputs[4].value,
+        "Crianças": inputs[5].value,
+        "Valor Total": inputs[6].value,
+        "Valor Recebido": inputs[7].value,
+        "Quem Indicou": document.querySelector("#container-dados-id select").value,
+        "Observaçao": document.querySelector("#observacao").value,
+      }
+      return dadosDaReserva;
+    }
+
+    const trazerTodosOsCamposNaoPreenchidos = (dados) => {
+      const dadosKeys = Object.keys(dados);
+      return dadosKeys.filter((key) => dados[key] === "");
+    };
+
+    async function inserirReserva() {
+      const dadosReserva = getFormFields();
+      const dadosNaoPreenchidos = trazerTodosOsCamposNaoPreenchidos(dadosReserva);
+
+      if (dadosNaoPreenchidos.length > 0) {
+        console.log({ dadosNaoPreenchidos })
+
+        const limparDiv = document.querySelector("#validar-formulario > form > div.container-alerta").innerHTML = "";
+        const alerta = document.querySelector("#validar-formulario > form > div.container-alerta");
+        const divAlerta = document.createElement("div");
+        divAlerta.innerHTML = `<span>Por favor preencha: ${dadosNaoPreenchidos.join(", ")}.</span>`;
+        alerta.appendChild(divAlerta);
+
+        // alert(`Por favor preencha: ${dadosNaoPreenchidos.join(", ")}.`)
+      } else {
+        console.log("Nao tem erro");
+
+        modal.showModal();
+        await google.script.run.setReserva(dadosReserva);
+      }
+
+    }
+
+    async function verCodigoReserva() {
+      div.innerHTML = `<div class="loader"></div>`;
+      divModal.appendChild(div);
+      await google.script.run.withSuccessHandler(inserirDiv).getCodigoReserva();
+    }
+
+    // function inserirDiv(codigoReserva){
+    //   div.innerHTML = `<h1 class="cor-do-codigo-reserva">Código de confirmação de reserva de hospedagem ${codigoReserva} em nome de * da Pousada Village Ubud na acomodação * do dia * a * para * crianças *, com o valor total de * e entrada de * e tendo o valor * a pagar no check-in</h1>
+    //   <div class="botao-loader">
+    //   <div class="botao-confirmar" id="botao-salvar"><button onclick="reLoad()">salvar</button></div>
+    //   <div class="botao-confirmar" id="botao-limpar"><button style="background: #ff0000;" onclick="limpar()">limpar</button></div>
+    //   </div>`;
+    //   divModal.appendChild(div);
+    //   console.log({codigoReserva});
+    // }
+
+    function inserirDiv(codigoReserva) {
+      console.log(codigoReserva[0]);
+      div.innerHTML = `<h1 class="cor-do-codigo-reserva">Código de confirmação de reserva de hospedagem ${codigoReserva[0][0]} em nome de ${codigoReserva[0][3]} da Pousada Village Ubud na acomodação ${codigoReserva[0][4]} do dia ${codigoReserva[0][5].split('-').reverse().join('/')} à ${codigoReserva[0][6].split('-').reverse().join('/')} para ${codigoReserva[0][7]} adultos ${codigoReserva[0][8]} crianças, com o valor total de ${codigoReserva[0][9]} e entrada de ${codigoReserva[0][10]} e tendo o valor ${codigoReserva[0][12]} a pagar no check-in</h1>
+        <div class="botao-loader">
+        <div class="botao-confirmar" id="botao-salvar"><button onclick="reLoad()">salvar</button></div>
+        <div class="botao-confirmar" id="botao-limpar"><button style="background: #ff0000;" onclick="limpar()">limpar</button></div>
+        </div>`;
+      divModal.appendChild(div);
+    }
+
+    function reLoad() {
+      google.script.run
+        .withSuccessHandler(function (url) {
+          window.open(url, '_top');
+        })
+        .getScriptURL();
+    }
+
+    function limpar() {
+      google.script.run.withSuccessHandler().apagarReserva();
+      reLoad();
+    }
+  </script>
+</body>
+
+</html>
